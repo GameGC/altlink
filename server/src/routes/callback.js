@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
         console.log('✅ Access token received:', access_token);
         console.log('LinkedIn callback query:', req.query);
 
-        res.redirect(`http://localhost:3000/?access_token=${access_token}`);
+        res.redirect(`${WEBS_URL}}?access_token=${access_token}`);
     } catch (err) {
         console.error('❌ Token exchange failed:', err.response?.data || err.message);
         res.status(500).json({
