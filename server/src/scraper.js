@@ -1,4 +1,5 @@
-const puppeteer = require('puppeteer-extra');
+const chromium = require('@sparticuz/chromium');
+const puppeteer = require('puppeteer-core');
 //const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 
 //puppeteer.use(StealthPlugin());
@@ -6,8 +7,9 @@ const puppeteer = require('puppeteer-extra');
 const runScraper = async () => {
   try {
     const browser = await puppeteer.launch({
-      headless: false, // or false for debugging
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
     });
 
     const page = await browser.newPage();

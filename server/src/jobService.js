@@ -1,8 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-const puppeteer = require('puppeteer-extra');
-//const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-//puppeteer.use(StealthPlugin());
+const chromium = require('@sparticuz/chromium');
+const puppeteer = require('puppeteer-core');
+
+
 
 const DatePosted = {
     AnyTime: '',
@@ -63,10 +64,10 @@ function loadJobFromFile(jobId) {
 }
 
 async function fetchJobs(title, location, datePosted, streamEmitter) {
-    browser = await puppeteer.launch({
-        headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        defaultViewport: null
+    const browser = await puppeteer.launch({
+        args: chromium.args,
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
     });
 
     const page = await browser.newPage();
