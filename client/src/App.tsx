@@ -213,12 +213,12 @@ function App() {
     const urlParams = new URLSearchParams(window.location.search);
     const accessToken = urlParams.get('access_token');
     if (!accessToken) {
-      const { SERVER_URI  } = process.env;
-      console.log('Server URI:', SERVER_URI);
-      const apiUrl = `${process.env.SERVER_URI}/api/linkedin/auth`;
+      const { SERVER_URL  } = process.env;
+      console.log('Server URI:', SERVER_URL);
+      const apiUrl = `${process.env.SERVER_URL}/api/linkedin/auth`;
       console.log(apiUrl); // It should print: https://altlink.vercel.app/api/linkedin/auth
 
-      window.location.href = `${SERVER_URI}/api/linkedin/auth`;
+      window.location.href = `${SERVER_URL}/api/linkedin/auth`;
     }
   }, []);
 
@@ -255,8 +255,8 @@ function App() {
     const { title, location, datePosted} = filters;
     const accessToken = getAccessTokenFromURL();
     const endpoints = [
-      `${process.env.SERVER_URI}/api/jobsNew?title=${title}&location=${location}&datePosted=${datePosted}`, // scraper
-      `${process.env.SERVER_URI}/api/linkedin/jobs?title=${title}&location=${location}&datePosted=${datePosted}&access_token=${accessToken}` // LinkedIn API
+      `${process.env.SERVER_URL}/api/jobsNew?title=${title}&location=${location}&datePosted=${datePosted}`, // scraper
+      `${process.env.SERVER_URL}/api/linkedin/jobs?title=${title}&location=${location}&datePosted=${datePosted}&access_token=${accessToken}` // LinkedIn API
     ];
 
     const url = useLinkedInAPI ? endpoints[1] : endpoints[0];
@@ -436,7 +436,7 @@ function App() {
 
   const runScrap = async () => {
     try {
-      const res = await fetch(`${process.env.SERVER_URI}/scrape`);
+      const res = await fetch(`${process.env.SERVER_URL}/scrape`);
       if (!res.ok) {
         throw new Error(`Failed to run scraper: ${res.statusText}`);
       }

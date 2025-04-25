@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     const { code, error: authError } = req.query;
-    const { LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET, SERVER_URI } = process.env;
+    const { LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET, SERVER_URL } = process.env;
 
     if (authError) {
         return res.status(400).send(`Authorization error: ${authError}`);
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
         return res.status(400).json({ error: 'Missing authorization code from LinkedIn.' });
     }
 
-    if (!LINKEDIN_CLIENT_ID || !LINKEDIN_CLIENT_SECRET || !SERVER_URI) {
+    if (!LINKEDIN_CLIENT_ID || !LINKEDIN_CLIENT_SECRET || !SERVER_URL) {
         return res.status(500).json({ error: 'Missing LinkedIn environment variables.' });
     }
 
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
             qs.stringify({
                 grant_type: 'authorization_code',
                 code,
-                redirect_uri: `${SERVER_URI}/api/linkedin/callback`,
+                redirect_uri: `${SERVER_URL}/api/linkedin/callback`,
                 client_id: LINKEDIN_CLIENT_ID,
                 client_secret: LINKEDIN_CLIENT_SECRET,
             }),
