@@ -213,7 +213,8 @@ function App() {
     const urlParams = new URLSearchParams(window.location.search);
     const accessToken = urlParams.get('access_token');
     if (!accessToken) {
-      window.location.href = `${process.env.SERVER_URI}/api/linkedin/auth`;
+      const { SERVER_URI  } = process.env;
+      window.location.href = `${SERVER_URI}/api/linkedin/auth`;
     }
   }, []);
 
