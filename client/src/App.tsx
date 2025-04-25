@@ -214,6 +214,10 @@ function App() {
     const accessToken = urlParams.get('access_token');
     if (!accessToken) {
       const { SERVER_URI  } = process.env;
+      console.log('Server URI:', SERVER_URI);
+      const apiUrl = `${process.env.SERVER_URI}/api/linkedin/auth`;
+      console.log(apiUrl); // It should print: https://altlink.vercel.app/api/linkedin/auth
+
       window.location.href = `${SERVER_URI}/api/linkedin/auth`;
     }
   }, []);
