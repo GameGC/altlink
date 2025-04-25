@@ -18,6 +18,7 @@ const DatePosted = {
 const BASE_URL = 'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search';
 const JOB_DETAIL_URL = 'https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/';
 
+const JOBS_DIR = path.join('/tmp', 'jobs'); // Writable directory in Vercel
 
 
 let browser;
@@ -37,7 +38,6 @@ async function simulateHuman(page) {
     await randomDelay(300, 800);
 }
 
-const JOBS_DIR = path.join(__dirname, 'jobs');
 
 function saveJobToFile(job) {
     if (!fs.existsSync(JOBS_DIR)) {
