@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     const { code, error: authError } = req.query;
-    const { LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET, WEBS_URL } = process.env;
+    const { LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET, REACT_APP_SERVER_URI } = process.env;
 
     if (authError) {
         return res.status(400).send(`Authorization error: ${authError}`);
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
         return res.status(400).json({ error: 'Missing authorization code from LinkedIn.' });
     }
 
-    if (!LINKEDIN_CLIENT_ID || !LINKEDIN_CLIENT_SECRET || !WEBS_URL) {
+    if (!LINKEDIN_CLIENT_ID || !LINKEDIN_CLIENT_SECRET || !REACT_APP_SERVER_URI) {
         return res.status(500).json({ error: 'Missing LinkedIn environment variables.' });
     }
 
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
             qs.stringify({
                 grant_type: 'authorization_code',
                 code,
-                redirect_uri: `${WEBS_URL}/api/linkedin/callback`,
+                redirect_uri: `${REACT_APP_SERVER_URI}/api/linkedin/callback`,
                 client_id: LINKEDIN_CLIENT_ID,
                 client_secret: LINKEDIN_CLIENT_SECRET,
             }),
@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
         console.log('✅ Access token received:', access_token);
         console.log('LinkedIn callback query:', req.query);
 
-        res.redirect(`${WEBS_URL}}?access_token=${access_token}`);
+        res.redirect(`${REACT_APP_SERVER_URI}?access_token=${access_token}`);
     } catch (err) {
         console.error('❌ Token exchange failed:', err.response?.data || err.message);
         res.status(500).json({

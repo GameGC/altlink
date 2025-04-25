@@ -213,10 +213,7 @@ function App() {
     const urlParams = new URLSearchParams(window.location.search);
     const accessToken = urlParams.get('access_token');
     if (!accessToken) {
-      const { WEBS_URL  } = process.env;
-      console.log('Server URI:', WEBS_URL);
-
-      window.location.href = `${WEBS_URL}/api/linkedin/auth`;
+      window.location.href = `${process.env.REACT_APP_SERVER_URI}/api/linkedin/auth`;
     }
   }, []);
 
@@ -253,8 +250,8 @@ function App() {
     const { title, location, datePosted} = filters;
     const accessToken = getAccessTokenFromURL();
     const endpoints = [
-      `${process.env.WEBS_URL}/api/jobsNew?title=${title}&location=${location}&datePosted=${datePosted}`, // scraper
-      `${process.env.WEBS_URL}/api/linkedin/jobs?title=${title}&location=${location}&datePosted=${datePosted}&access_token=${accessToken}` // LinkedIn API
+      `${process.env.REACT_APP_SERVER_URI}/api/jobsNew?title=${title}&location=${location}&datePosted=${datePosted}`, // scraper
+      `${process.env.REACT_APP_SERVER_URI}/api/linkedin/jobs?title=${title}&location=${location}&datePosted=${datePosted}&access_token=${accessToken}` // LinkedIn API
     ];
 
     const url = useLinkedInAPI ? endpoints[1] : endpoints[0];
@@ -434,7 +431,7 @@ function App() {
 
   const runScrap = async () => {
     try {
-      const res = await fetch(`${process.env.WEBS_URL}/scrape`);
+      const res = await fetch(`${process.env.REACT_APP_SERVER_URI}/scrape`);
       if (!res.ok) {
         throw new Error(`Failed to run scraper: ${res.statusText}`);
       }
