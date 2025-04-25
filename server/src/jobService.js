@@ -144,7 +144,7 @@ async function fetchJobs(title, location, datePosted, streamEmitter) {
                     await randomDelay(1500, 3000); // Simulate delay between jobs
 
                     console.log(`Fetching details for job ${job.id}.`);
-                    jobDetails = await fetchJobDetails(job);
+                    jobDetails = await fetchJobDetails(job,browser);
                     saveJobToFile(jobDetails); // Save the job after fetching details
                 }
 
@@ -165,7 +165,7 @@ async function fetchJobs(title, location, datePosted, streamEmitter) {
     }
 }
 
-async function fetchJobDetails(basicJobInfo) {
+async function fetchJobDetails(basicJobInfo, browser) {
     const page = await browser.newPage();
     await simulateHuman(page);
     await randomDelay(800, 1500);
