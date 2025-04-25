@@ -1,0 +1,9 @@
+{
+  "name": "my-vercel-ts-app-split",
+  "private": true,
+  "scripts": {
+    "client": "npm start --prefix client",
+    "build-client": "npm run build --prefix client",
+    "server": "npm run dev --prefix server"
+  }
+}

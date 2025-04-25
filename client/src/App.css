@@ -1,0 +1,37 @@
+.app-layout {
+  min-height: 100vh;
+  background-color: #f3f2ef;
+}
+
+.main-content {
+  padding-top: 52px;
+  min-height: calc(100vh - 52px);
+}
+
+.job-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  min-height: calc(100vh - 104px);
+}
+
+.job-list-container {
+  flex: 0 0 30%;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  background-color: white;
+}
+
+.job-detail-container {
+  flex: 0 0 70%;
+  overflow-y: auto;
+  background-color: white;
+}
+
+/* Fix for LinkedIn logo size */
+.linkedin-logo img {
+  max-width: 34px;
+  max-height: 34px;
+  margin-right: 8px;
+}

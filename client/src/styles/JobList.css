@@ -1,0 +1,162 @@
+.job-list {
+  background-color: #f3f2ef;
+  border-right: 1px solid #e0e0e0;
+  height: calc(100vh - 104px);
+  overflow-y: auto;
+}
+
+.job-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #0a66c2;
+  color: white;
+}
+
+.job-list-header h5 {
+  color: white;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.job-list-header .ant-typography-secondary {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+.job-alert-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+}
+
+.toggle-switch {
+  width: 40px;
+  height: 20px;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #0a66c2;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: all 0.2s ease;
+}
+
+.job-cards {
+  padding: 8px;
+}
+
+.job-card {
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s;
+  border: 1px solid #e0e0e0;
+}
+
+.job-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.job-card.selected {
+  border-color: #0a66c2;
+  box-shadow: 0 0 10px rgba(10, 102, 194, 0.2);
+}
+
+.job-card-content {
+  display: flex;
+  position: relative;
+  padding: 12px;
+}
+
+.job-logo {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.job-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.job-title {
+  margin-bottom: 4px !important;
+  font-weight: 600;
+  font-size: 16px !important;
+  color: rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.company-name {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.job-location {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.job-meta {
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.job-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.work-type-tag {
+  background-color: rgba(0, 0, 0, 0.08);
+  border: none;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 12px;
+  padding: 0 8px;
+  height: 24px;
+  line-height: 22px;
+  border-radius: 4px;
+}
+
+.easy-apply {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.easy-apply-text {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+}
+
+.dismiss-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.no-results {
+  padding: 24px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+}

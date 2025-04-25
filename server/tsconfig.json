@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+
+    "module": "commonjs",                  // Use CommonJS module system
+    "rootDir": "./",                       // Root directory (adjust if needed)
+    "outDir": "./dist",                    // Output directory for compiled files
+    "strict": true,                        // Enable strict mode for better type-checking
+    "esModuleInterop": true,               // Enable interoperability for importing CommonJS modules
+    "skipLibCheck": true,                  // Skip library type checking
+    "forceConsistentCasingInFileNames": true,  // Ensure consistent file name casing
+    "allowJs": true,                       // Allow JavaScript files to be compiled
+    "checkJs": true,                        // Enable type checking for JavaScript files
+    "paths": {
+      "@shared/*": ["../shared/*"]
+    }
+  },
+  "include": [
+    "**/*.ts",                             // Include all TypeScript files
+    "**/*.js"                              // Include all JavaScript files
+  ],
+  "exclude": [
+    "node_modules",                        // Exclude the node_modules directory
+    "dist"                                 // Exclude the output directory
+  ]
+}
