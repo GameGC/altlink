@@ -249,6 +249,8 @@ function App() {
 
     const { title, location, datePosted} = filters;
     const accessToken = getAccessTokenFromURL();
+
+    console.log(process.env.REACT_APP_SERVER_URI);
     const endpoints = [
       `${process.env.REACT_APP_SERVER_URI}/api/jobsNew?title=${title}&location=${location}&datePosted=${datePosted}`, // scraper
       `${process.env.REACT_APP_SERVER_URI}/api/linkedin/jobs?title=${title}&location=${location}&datePosted=${datePosted}&access_token=${accessToken}` // LinkedIn API

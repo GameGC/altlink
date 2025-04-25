@@ -18,8 +18,7 @@
     "web-vitals": "^2.1.4",
     "antd": "^5.24.7",
     "axios": "^1.8.4",
-    "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2"
+    "puppeteer-extra": "^3.3.6"
   },
   "scripts": {
     "start": "react-scripts start",
