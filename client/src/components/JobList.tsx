@@ -90,13 +90,6 @@ const JobList: React.FC<JobListProps> = ({ jobs, onSelectJob, searchKeyword, sea
                             </div>
                         )}
                       </div>
-
-                      <Button
-                          type="text"
-                          icon={<CloseOutlined />}
-                          className="dismiss-button"
-                          onClick={(e) => e.stopPropagation()}
-                      />
                     </div>
                   </Card>
               ))
