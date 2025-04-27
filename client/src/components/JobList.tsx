@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Card, Avatar, Typography, Tag, Button } from 'antd';
 import { CloseOutlined, LinkedinOutlined } from '@ant-design/icons';
 import '../styles/JobList.css';
+import '../styles/JobDetail.css';
+
 
 const { Title, Text } = Typography;
 
